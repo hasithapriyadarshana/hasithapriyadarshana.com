@@ -6,12 +6,13 @@ export default function ContactArea() {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [service, setService] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log('Form submitted:', { name, email, subject, message });
+    console.log('Form submitted:', { name, email, service, subject, message });
   };
 
 
@@ -35,7 +36,7 @@ export default function ContactArea() {
                     <i className="ri-map-pin-line"></i>
                   </span>
                   <h2>Location</h2>
-                  <p>Sri Lanka</p>
+                  <p>Homagama, Sri Lanka</p>
                 </div>
 
                 <div className="single-contact wow fadeInUp" data-wow-delay=".4s">
@@ -43,15 +44,25 @@ export default function ContactArea() {
                     <i className="ri-mail-line"></i>
                   </span>
                   <h2>Email</h2>
-                  <p>hasitha@hyperx.lk</p>
+                  <p>chathasitha@gmail.com</p>
                 </div>
 
                 <div className="single-contact wow fadeInUp" data-wow-delay=".5s">
                   <span className="circle-btn">
-                    <i className="ri-shopping-bag-line"></i>
+                    <i className="ri-phone-line"></i>
                   </span>
-                  <h2>Fiverr</h2>
-                  <p>Level 1 Seller</p>
+                  <h2>Call Now </h2>
+                  <p>+94 77 129 27 40 </p>
+                  <p>+94 71 48 10 405</p>
+                </div>
+
+                <div className="single-contact wow fadeInUp" data-wow-delay=".55s">
+                  <span className="circle-btn">
+                    <i className="ri-whatsapp-line"></i>
+                  </span>
+                  <h2>WhatsApp</h2>
+                  <p><a href="https://wa.me/94771292740" target="_blank" rel="noopener noreferrer">+94 77 129 27 40</a></p>
+                  <p><a href="https://wa.me/94714810405" target="_blank" rel="noopener noreferrer">+94 71 48 10 405</a></p>
                 </div>
 
                 <div className="single-contact wow fadeInUp" data-wow-delay=".6s">
@@ -103,6 +114,29 @@ export default function ContactArea() {
                           data-error="Please enter your Email"
                         />
                         <label htmlFor="email" className="for-icon"><i className="far fa-envelope"></i></label>
+                        <div className="help-block with-errors"></div>
+                      </div>
+                    </div>
+                    <div className="col-md-12">
+                      <div className="form-group">
+                        <label htmlFor="service">Service Required</label>
+                        <select
+                          id="service"
+                          className="form-control"
+                          value={service}
+                          onChange={(e) => setService(e.target.value)}
+                          required
+                          data-error="Please select a service"
+                        >
+                          <option value="" disabled>Select a service</option>
+                          <option value="Network Solutions">Network Solutions</option>
+                          <option value="Website Design">Website Design</option>
+                          <option value="Website Maintenance">Website Maintenance</option>
+                          <option value="Website Migration">Website Migration</option>
+                          <option value="Social Media Marketing">Social Media Marketing</option>
+                          <option value="WordPress Solutions">WordPress Solutions</option>
+                          <option value="Other">Other</option>
+                        </select>
                         <div className="help-block with-errors"></div>
                       </div>
                     </div>

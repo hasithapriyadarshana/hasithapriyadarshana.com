@@ -1,7 +1,6 @@
 "use client"
 import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react'
-import ImagePopup from '@/modals/ImagePopup';
 
 import portfolio_img_1 from "@/assets/images/projects/work7.png";
 import portfolio_img_2 from "@/assets/images/projects/work2.png";
@@ -12,61 +11,63 @@ import portfolio_img_6 from "@/assets/images/projects/work6.png";
 
 interface DataType {
   id: number;
-  col: string;
   image: StaticImageData;
   title: string;
+  desc: string;
   category: string;
-  year: string;
+  github?: string;
+  live?: string;
 }
 
 const portfolio_data: DataType[] = [
   {
     id: 1,
-    col: "4",
     image: portfolio_img_1,
     title: "HasithaPriyadarshana.com",
+    desc: "Personal portfolio website built with Next.js, featuring modern design, GSAP animations, and a fully responsive layout.",
     category: "personal",
-    year: "2024",
+    github: "https://github.com/hasithapriyadarshana/my-portfolio-next",
+    live: "https://hasithapriyadarshana.com",
   },
   {
     id: 2,
-    col: "4",
     image: portfolio_img_2,
     title: "Lanka Guide",
+    desc: "A travel and tourism platform showcasing Sri Lankan destinations, built with responsive design and interactive features.",
     category: "freelance",
-    year: "2024",
+    live: "#",
   },
   {
     id: 3,
-    col: "4",
     image: portfolio_img_3,
     title: "HyperX Innovations",
+    desc: "Business website for HyperX Innovations providing web development and technology solutions to clients.",
     category: "personal",
-    year: "2024",
+    live: "#",
   },
   {
     id: 4,
-    col: "4",
     image: portfolio_img_4,
     title: "Smart Weather IoT Device",
+    desc: "IoT-based weather monitoring system built with microcontrollers, sensors, and real-time data visualization.",
     category: "university",
-    year: "2024",
+    github: "#",
   },
   {
     id: 5,
-    col: "4",
     image: portfolio_img_5,
     title: "Network Traffic Monitor",
+    desc: "Network monitoring tool for analyzing traffic patterns, detecting anomalies, and visualizing bandwidth usage.",
     category: "networking",
-    year: "2024",
+    github: "#",
   },
   {
     id: 6,
-    col: "4",
     image: portfolio_img_6,
     title: "E-Commerce Platform",
+    desc: "Full-stack e-commerce solution with product management, cart, checkout, and payment integration.",
     category: "freelance",
-    year: "2023",
+    live: "#",
   },
 ];
 
@@ -81,19 +82,10 @@ const categories = [
 export default function PortfolioArea() {
 
   const [activeFilter, setActiveFilter] = useState("all");
-  const [photoIndex, setPhotoIndex] = useState<number | null>(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   const filteredData = activeFilter === "all"
     ? portfolio_data
     : portfolio_data.filter((item) => item.category === activeFilter);
-
-  const handleImagePopup = (i: number) => {
-    setPhotoIndex(i);
-    setIsOpen(true);
-  };
-
-  const image = filteredData.map((item) => item.image.src);
 
   return (
     <>
@@ -101,7 +93,7 @@ export default function PortfolioArea() {
         <div className="custom-icon">
           <img src="assets/images/custom/work-scribble.svg" alt="custom" />
         </div>
-        <div className="container-fluid">
+        <div className="container">
           {/* Filter Tabs */}
           <div className="row mb-4">
             <div className="col-xl-12">
@@ -120,38 +112,36 @@ export default function PortfolioArea() {
           </div>
 
           {/* Portfolio Grid */}
-          <div className="row g-4 portfolio-grid">
-            {filteredData.map((item, i) => (
-              <div key={`${item.id}-${i}`} className={`col-md-6 col-xl-${item.col} portfolio-item`}>
-                <a
-                  style={{ cursor: "pointer" }}
-                  onClick={() => handleImagePopup(i)}
-                  className="work-popup"
-                >
-                  <div className="portfolio-box">
-                    <Image src={item.image} alt={item.title} style={{ height: "auto" }} data-rjs="2" />
-                    <div className="portfolio-caption">
-                      <h1>{item.title}</h1>
-                      <span className="portfolio-category">{item.category.charAt(0).toUpperCase() + item.category.slice(1)} &middot; {item.year}</span>
+          <div className="row g-4">
+            {filteredData.map((item) => (
+              <div key={item.id} className="col-lg-4 col-md-6">
+                <div className="portfolio-card wow fadeInUp delay-0-2s">
+                  <div className="portfolio-card-image">
+                    <Image src={item.image} alt={item.title} style={{ height: "auto", width: "100%" }} />
+                    <span className="portfolio-card-category">{item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
+                  </div>
+                  <div className="portfolio-card-content">
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                    <div className="portfolio-card-links">
+                      {item.github && (
+                        <a href={item.github} target="_blank" rel="noopener noreferrer" className="portfolio-btn">
+                          <i className="ri-github-line"></i> GitHub
+                        </a>
+                      )}
+                      {item.live && (
+                        <a href={item.live} target="_blank" rel="noopener noreferrer" className="portfolio-btn portfolio-btn-primary">
+                          <i className="ri-external-link-line"></i> Live Demo
+                        </a>
+                      )}
                     </div>
                   </div>
-                </a>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* image light box start */}
-      {isOpen && (
-        <ImagePopup
-          images={image}
-          setIsOpen={setIsOpen}
-          photoIndex={photoIndex}
-          setPhotoIndex={setPhotoIndex}
-        />
-      )}
-      {/* image light box end */}
     </>
   )
 }

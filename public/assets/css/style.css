@@ -1222,7 +1222,7 @@ html {
 
 .hero-content h2 {
     font-weight: 500;
-    font-size: 205px;
+    font-size: 130px;
     text-transform: uppercase;
     text-align: center;
     color: var(--main-color);
@@ -1983,6 +1983,38 @@ ul.extra-skills li i {
     line-height: 1.7;
 }
 
+/* Timeline Scroll Progress */
+.timeline {
+    position: relative;
+}
+
+.timeline-line-progress {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    width: 2px;
+    height: 0%;
+    background: var(--main-color);
+    z-index: 1;
+    transition: height 0.1s linear;
+}
+
+.timeline-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item.timeline-item-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item.timeline-item-visible .timeline-dot {
+    background: var(--main-color);
+    box-shadow: 0 0 0 4px rgba(7, 7, 7, 0.15);
+}
+
 /* Timeline Item with Logo */
 .timeline-item-inner {
     display: flex;
@@ -2333,31 +2365,32 @@ ul.extra-skills li i {
 
 .filter-btn {
     padding: 10px 28px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid #ffffff;
+    background: transparent;
     color: #ffffff;
-    border-radius: 30px;
+    border-radius: 2px;
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
     font-family: var(--body-font);
     letter-spacing: 0.3px;
-    backdrop-filter: blur(4px);
 }
 
 .filter-btn:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: rgba(255, 255, 255, 0.5);
+    background: #3D3E3E;
+    border-color: #3D3E3E;
     color: #ffffff;
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(61, 62, 62, 0.25);
 }
 
 .filter-btn.active {
-    background: #ffffff;
-    color: #070707;
-    border-color: #ffffff;
+    background: #3D3E3E;
+    color: #ffffff;
+    border-color: #3D3E3E;
     font-weight: 600;
+    box-shadow: 0 4px 12px rgba(61, 62, 62, 0.25);
 }
 
 .portfolio-category {
@@ -2365,6 +2398,106 @@ ul.extra-skills li i {
     font-size: 13px;
     opacity: 0.8;
     margin-top: 4px;
+}
+
+/* Portfolio Card */
+.portfolio-card {
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: var(--lighter-color);
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: 0.5s;
+}
+
+.portfolio-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-card-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card-image img {
+    width: 100%;
+    display: block;
+    transition: 0.5s;
+}
+
+.portfolio-card:hover .portfolio-card-image img {
+    transform: scale(1.05);
+}
+
+.portfolio-card-category {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--main-color);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.portfolio-card-content {
+    padding: 28px 30px 30px;
+}
+
+.portfolio-card-content h4 {
+    color: var(--main-color);
+    font-size: 22px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.portfolio-card-content p {
+    color: rgb(119, 119, 125);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.portfolio-card-links {
+    display: flex;
+    gap: 12px;
+}
+
+.portfolio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.3s;
+    border: 1px solid var(--border-color);
+    color: var(--main-color);
+    background: transparent;
+}
+
+.portfolio-btn:hover {
+    background: var(--main-color);
+    color: #fff;
+    border-color: var(--main-color);
+}
+
+.portfolio-btn-primary {
+    background: var(--main-color);
+    color: #fff;
+    border-color: var(--main-color);
+}
+
+.portfolio-btn-primary:hover {
+    background: transparent;
+    color: var(--main-color);
 }
 
 
@@ -2850,11 +2983,21 @@ p.copy-right-text {
 
 .footer-top h2 {
     color: var(--main-color);
-    font-size: 180px;
+    font-size: 120px;
     line-height: 1em;
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
+}
+
+.typing-cursor {
+    animation: blink 0.8s infinite;
+    font-weight: 300;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .footer-top{
