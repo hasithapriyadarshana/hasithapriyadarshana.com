@@ -9,8 +9,9 @@ export default function HeroArea() {
         <div className="absolute inset-0 overflow-hidden">
           <Particles
             className="absolute inset-0"
-            quantity={80}
+            quantity={60}
             color="#c9a84c"
+            size={1.2}
             vx={0.1}
           />
         </div>
@@ -18,7 +19,9 @@ export default function HeroArea() {
           <div className="row">
             <div className="col-lg-12">
               <div className="hero-content wow fadeInUp text-center delay-0-2s">
-                <h2>Hasitha Priyadarshana</h2>
+                <h2>Hasitha </h2>
+                <h4>Priyadarshana</h4>
+              
               </div>
             </div>
           </div>

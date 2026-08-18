@@ -8,6 +8,10 @@ const work_data = [
     title: "Founder & CEO",
     company: "HyperX Innovations",
     desc: "Founded HyperX Innovations to provide web development and technology solutions to businesses and individuals. Responsible for project planning, development, client communication, technical implementation, and business operations.",
+    proofs: [
+      "assets/images/proofs/hyperx-1.jpg",
+      "assets/images/proofs/hyperx-2.jpg",
+    ],
   },
   {
     id: 2,
@@ -16,6 +20,10 @@ const work_data = [
     title: "Level 1 Freelancer",
     company: "Fiverr",
     desc: "Provide website design and development services to clients through Fiverr. Work on business websites, WordPress projects, landing pages, UI improvements, and other web-related solutions.",
+    proofs: [
+      "assets/images/proofs/fiverr-1.jpg",
+      "assets/images/proofs/fiverr-2.jpg",
+    ],
   },
   {
     id: 3,
@@ -24,6 +32,7 @@ const work_data = [
     title: "Freelance Graphic Designer",
     company: "Independent",
     desc: "Started my professional journey by providing graphic design services for individuals and businesses. Worked on visual identities, logos, promotional materials, and digital content.",
+    proofs: [],
   },
 ];
 
@@ -35,6 +44,9 @@ const education_data = [
     title: "Bachelor of ICT (Hons) — Network Technology",
     company: "University of Sri Jayewardenepura",
     desc: "Pursuing a four-year Bachelor of ICT (Honours) degree with a focus on networking, cybersecurity, cloud computing, software development, databases, and emerging technologies.",
+    proofs: [
+      "assets/images/proofs/usjp-1.jpg",
+    ],
   },
   {
     id: 2,
@@ -43,6 +55,9 @@ const education_data = [
     title: "Secondary & Advanced Level Education",
     company: "Ananda Sastralaya National School",
     desc: "Completed secondary and Advanced Level education in the Technology Stream, developing a strong foundation in technology and information communication.",
+    proofs: [
+      "assets/images/proofs/ananda-1.jpg",
+    ],
   },
   {
     id: 3,
@@ -51,6 +66,7 @@ const education_data = [
     title: "Primary Education",
     company: "Weediyabandara M.V., Morapitiya",
     desc: "Completed primary education and successfully passed the Grade 5 Scholarship Examination.",
+    proofs: [],
   },
 ];
 
@@ -62,6 +78,9 @@ const volunteer_data = [
     title: "Co-Chair",
     company: "CryptX 2.0",
     desc: "Contributing to the planning and coordination of a university-level cybersecurity event featuring technical competitions, CTF challenges, knowledge-sharing sessions, and industry-focused activities.",
+    proofs: [
+      "assets/images/proofs/cryptx-1.jpg",
+    ],
   },
   {
     id: 2,
@@ -70,6 +89,9 @@ const volunteer_data = [
     title: "Vice President",
     company: "Career Skills Development Society",
     desc: "Supporting professional development initiatives for university students through workshops, career programmes, industry engagement, and networking opportunities.",
+    proofs: [
+      "assets/images/proofs/csnds-1.jpg",
+    ],
   },
   {
     id: 3,
@@ -78,6 +100,7 @@ const volunteer_data = [
     title: "Member",
     company: "ICT Society — University of Sri Jayewardenepura",
     desc: "Participating in technical events, workshops, hackathons, competitions, and technology awareness programmes.",
+    proofs: [],
   },
   {
     id: 4,
@@ -86,8 +109,24 @@ const volunteer_data = [
     title: "Participant",
     company: "Touch The Peak",
     desc: "Participated in a university leadership and personal development programme focused on professional growth, teamwork, and leadership skills.",
+    proofs: [
+      "assets/images/proofs/touchpeak-1.jpg",
+    ],
   },
 ];
+
+function ProofImages({ proofs, company }: { proofs: string[]; company: string }) {
+  if (!proofs || proofs.length === 0) return null;
+  return (
+    <div className="timeline-proofs">
+      {proofs.map((src, i) => (
+        <a key={i} href={src} target="_blank" rel="noopener noreferrer" className="timeline-proof-thumb">
+          <img src={src} alt={`${company} proof ${i + 1}`} />
+        </a>
+      ))}
+    </div>
+  );
+}
 
 export default function ResumeArea() {
   return (
@@ -115,6 +154,7 @@ export default function ResumeArea() {
                           <h2>{item.title}</h2>
                           <span className="timeline-company">{item.company}</span>
                           <p>{item.desc}</p>
+                          <ProofImages proofs={item.proofs} company={item.company} />
                         </div>
                       </div>
                     </div>
@@ -143,6 +183,7 @@ export default function ResumeArea() {
                           <h2>{item.title}</h2>
                           <span className="timeline-company">{item.company}</span>
                           <p>{item.desc}</p>
+                          <ProofImages proofs={item.proofs} company={item.company} />
                         </div>
                       </div>
                     </div>
@@ -177,6 +218,7 @@ export default function ResumeArea() {
                           <h2>{item.title}</h2>
                           <span className="timeline-company">{item.company}</span>
                           <p>{item.desc}</p>
+                          <ProofImages proofs={item.proofs} company={item.company} />
                         </div>
                       </div>
                     </div>
