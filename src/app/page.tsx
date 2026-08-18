@@ -6,7 +6,7 @@ import Home from '@/components/home'
 import Wrapper from '@/layouts/Wrapper'
 
 export const metadata: Metadata = {
-  title: 'Home',
+  title: 'Hasitha Priyadarshana | Home',
   description:
     'Hasitha Priyadarshana — Network Technology undergraduate and web developer. Explore my projects, services, and get in touch for web development, networking, and cybersecurity work.',
   openGraph: {

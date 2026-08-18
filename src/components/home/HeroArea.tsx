@@ -9,9 +9,11 @@ export default function HeroArea() {
         <div className="absolute inset-0 overflow-hidden">
           <Particles
             className="absolute inset-0"
-            quantity={60}
+            quantity={120}
             color="#c9a84c"
-            size={1.2}
+            size={1.5}
+            staticity={30}
+            ease={40}
             vx={0.1}
           />
         </div>
@@ -19,8 +21,7 @@ export default function HeroArea() {
           <div className="row">
             <div className="col-lg-12">
               <div className="hero-content wow fadeInUp text-center delay-0-2s">
-                <h2>Hasitha </h2>
-                <h4>Priyadarshana</h4>
+                <h2>Hasitha Priyadarshana </h2>
               
               </div>
             </div>
@@ -53,7 +54,6 @@ export default function HeroArea() {
             </div>
             <div className="col-lg-3 pt-30">
               <div className="hero-content wow fadeInUp delay-0-4s">
-                <h5>Network Technology &middot; Cybersecurity &middot; Web Development</h5>
                 <p style={{ marginTop: "10px" }}>
                   Network Technology Undergraduate &amp; Web Developer. Building secure
                   network solutions, modern web experiences, and practical technology

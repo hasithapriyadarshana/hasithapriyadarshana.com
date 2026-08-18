@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useEffect, useRef } from "react";
 
 const work_data = [
   {
@@ -46,6 +47,7 @@ const education_data = [
     desc: "Pursuing a four-year Bachelor of ICT (Honours) degree with a focus on networking, cybersecurity, cloud computing, software development, databases, and emerging technologies.",
     proofs: [
       "assets/images/proofs/usjp-1.jpg",
+      "assets/images/proofs/usjp-1.jpg"
     ],
   },
   {
@@ -128,6 +130,47 @@ function ProofImages({ proofs, company }: { proofs: string[]; company: string })
   );
 }
 
+function TimelineProgress({ children }: { children: React.ReactNode }) {
+  const timelineRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const timeline = timelineRef.current;
+    if (!timeline) return;
+
+    const handleScroll = () => {
+      const items = timeline.querySelectorAll(".timeline-item");
+      items.forEach((item) => {
+        const rect = item.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        if (rect.top < windowHeight * 0.8) {
+          item.classList.add("timeline-item-visible");
+        }
+      });
+
+      const line = timeline.querySelector(".timeline-line-progress") as HTMLElement;
+      if (!line) return;
+      const timelineRect = timeline.getBoundingClientRect();
+      const timelineTop = timelineRect.top;
+      const timelineHeight = timelineRect.height;
+      const windowHeight = window.innerHeight;
+      const scrolled = windowHeight * 0.75 - timelineTop;
+      const progress = Math.min(Math.max(scrolled / timelineHeight, 0), 1);
+      line.style.height = `${progress * 100}%`;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="timeline" ref={timelineRef}>
+      <div className="timeline-line-progress"></div>
+      {children}
+    </div>
+  );
+}
+
 export default function ResumeArea() {
   return (
     <>
@@ -141,7 +184,7 @@ export default function ResumeArea() {
                   <i className="fas fa-briefcase"></i>
                   Work Experience
                 </h3>
-                <div className="timeline">
+                <TimelineProgress>
                   {work_data.map((item) => (
                     <div key={item.id} className="timeline-item">
                       <div className="timeline-dot"></div>
@@ -159,7 +202,7 @@ export default function ResumeArea() {
                       </div>
                     </div>
                   ))}
-                </div>
+                </TimelineProgress>
               </div>
             </div>
 
@@ -170,7 +213,7 @@ export default function ResumeArea() {
                   <i className="fas fa-graduation-cap"></i>
                   Education
                 </h3>
-                <div className="timeline">
+                <TimelineProgress>
                   {education_data.map((item) => (
                     <div key={item.id} className="timeline-item">
                       <div className="timeline-dot"></div>
@@ -188,7 +231,7 @@ export default function ResumeArea() {
                       </div>
                     </div>
                   ))}
-                </div>
+                </TimelineProgress>
               </div>
             </div>
           </div>
@@ -205,25 +248,27 @@ export default function ResumeArea() {
                   Active leadership, technical management, and community initiative
                   positions I&apos;ve held across societies and tech organizations.
                 </p>
-                <div className="timeline timeline-full">
-                  {volunteer_data.map((item) => (
-                    <div key={item.id} className="timeline-item">
-                      <div className="timeline-dot"></div>
-                      <div className="timeline-item-inner">
-                        <div className="timeline-logo">
-                          <img src={item.image} alt={item.company} />
-                        </div>
-                        <div className="timeline-content">
-                          <span className="resume-date">{item.date}</span>
-                          <h2>{item.title}</h2>
-                          <span className="timeline-company">{item.company}</span>
-                          <p>{item.desc}</p>
-                          <ProofImages proofs={item.proofs} company={item.company} />
+                <TimelineProgress>
+                  <div className="timeline-full">
+                    {volunteer_data.map((item) => (
+                      <div key={item.id} className="timeline-item">
+                        <div className="timeline-dot"></div>
+                        <div className="timeline-item-inner">
+                          <div className="timeline-logo">
+                            <img src={item.image} alt={item.company} />
+                          </div>
+                          <div className="timeline-content">
+                            <span className="resume-date">{item.date}</span>
+                            <h2>{item.title}</h2>
+                            <span className="timeline-company">{item.company}</span>
+                            <p>{item.desc}</p>
+                            <ProofImages proofs={item.proofs} company={item.company} />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                </TimelineProgress>
               </div>
             </div>
           </div>

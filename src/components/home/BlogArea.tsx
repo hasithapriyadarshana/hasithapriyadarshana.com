@@ -1,7 +1,12 @@
 
+"use client"
 import React from 'react'
+import Link from 'next/link'
+import { getRecentBlogs } from '@/data/blog_data'
 
 export default function BlogArea() {
+  const posts = getRecentBlogs(3)
+
   return (
     <>
       <section className="blog-area">
@@ -14,67 +19,27 @@ export default function BlogArea() {
             </div>
           </div>
 
-          <div className="row blog-post-box align-items-center">
-            <div className="col-lg-6">
-              <div className="blog-post-img">
-                <a href="#">
-                  <img src="assets/images/blog/blog1.jpg" alt="" />
-                </a>
-                <div className="blog-post-category">
-                  <a href="#">Help</a>
+          {posts.map((post, index) => (
+            <div key={post.id} className="row blog-post-box align-items-center">
+              <div className="col-lg-6">
+                <div className="blog-post-img">
+                  <Link href={`/blog/${post.slug}`}>
+                    <img src={`/${post.image}`} alt={post.title} />
+                  </Link>
+                  <div className="blog-post-category">
+                    <a href="#">{post.category}</a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="blog-post-caption">
+                  <h3>Posted on {post.date}</h3>
+                  <h2><Link className="link-decoration" href={`/blog/${post.slug}`}>{post.title}</Link></h2>
+                  <Link className="theme-btn theme-btn-two" href={`/blog/${post.slug}`}>Read more <i className="ri-arrow-right-line"></i></Link>
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
-              <div className="blog-post-caption">
-                <h3>Posted on Aug 28</h3>
-                <h2><a className="link-decoration" href="#">Create a Landing Page That Performs Great</a></h2>
-                <a className="theme-btn theme-btn-two" href="#">Read more <i className="ri-arrow-right-line"></i></a>
-              </div>
-            </div>
-          </div>
-
-
-          <div className="row blog-post-box align-items-center">
-            <div className="col-lg-6">
-              <div className="blog-post-img">
-                <a href="#">
-                  <img src="assets/images/blog/blog2.jpg" alt="" />
-                </a>
-                <div className="blog-post-category">
-                  <a href="#">Branding</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="blog-post-caption">
-                <h3>Posted on Aug 28</h3>
-                <h2><a className="link-decoration" href="#">Starting and Growing a Career in Web Design</a></h2>
-                <a className="theme-btn theme-btn-two" href="#">Read more <i className="ri-arrow-right-line"></i></a>
-              </div>
-            </div>
-          </div>
-
-
-          <div className="row blog-post-box align-items-center">
-            <div className="col-lg-6">
-              <div className="blog-post-img">
-                <a href="#">
-                  <img src="assets/images/blog/blog3.jpg" alt="" />
-                </a>
-                <div className="blog-post-category">
-                  <a href="#">Design</a>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-6">
-              <div className="blog-post-caption">
-                <h3>Posted on Aug 28</h3>
-                <h2><a className="link-decoration" href="#">How Can Designers Prepare for the Future?</a></h2>
-                <a className="theme-btn theme-btn-two" href="#">Read more <i className="ri-arrow-right-line"></i></a>
-              </div>
-            </div>
-          </div>
+          ))}
 
         </div>
       </section>
