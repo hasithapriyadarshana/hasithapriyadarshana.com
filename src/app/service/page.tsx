@@ -1,14 +1,20 @@
- 
+
 import Service from '@/components/service'
 import Wrapper from '@/layouts/Wrapper'
 import { Metadata } from 'next'
 import React from 'react'
 
 export const metadata: Metadata = {
-  title: 'Service- Hasitha Priyadarshana',
-  description: 'Nino - Personal Portfolio Next JS Template fresh and clean Design. You can use this portfolio template for: agency, personal portfolio, architect agency, photography studios, sound and music, musician, painter portfolio, artworks, art, artist portfolio, web design works, illustrators, trainer, projects, freelance designer. Just take the best Template of your choice, change the text, add your images and done! we have a strong support team which 24/7 days available to support you.',
+  title: 'Services',
+  description:
+    'Services offered by Hasitha Priyadarshana — web development, network engineering, cybersecurity, cloud solutions, IoT, UI/UX design, and IT consulting.',
+  openGraph: {
+    title: 'Services | Hasitha Priyadarshana',
+    description:
+      'Web development, networking, cybersecurity, cloud, IoT, and IT consulting services.',
+    url: 'https://hasithapriyadarshana.com/service',
+  },
 }
-
 
 export default function index() {
   return (

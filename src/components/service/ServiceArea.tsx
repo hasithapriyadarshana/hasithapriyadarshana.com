@@ -1,52 +1,74 @@
 
 import React from 'react'
 
+const services_data = [
+  {
+    id: 1,
+    icon: "ri-code-s-slash-line",
+    num: "01",
+    title: "Web Development",
+    desc: "Building modern, responsive websites and web applications using React, Next.js, PHP, and WordPress. From landing pages to full-stack solutions tailored to your business needs.",
+  },
+  {
+    id: 2,
+    icon: "ri-shield-check-line",
+    num: "02",
+    title: "Network & Security",
+    desc: "Network design, configuration, and security auditing. Setting up secure infrastructure for businesses and individuals using Cisco technologies and best practices.",
+  },
+  {
+    id: 3,
+    icon: "ri-cloud-line",
+    num: "03",
+    title: "Cloud Solutions",
+    desc: "Microsoft Azure and AWS cloud deployments, migration, and management. Scalable, reliable cloud infrastructure for modern applications and services.",
+  },
+  {
+    id: 4,
+    icon: "ri-smartphone-line",
+    num: "04",
+    title: "IoT & Smart Systems",
+    desc: "Designing and prototyping IoT devices and embedded systems. Connecting the physical world with smart, networked technology solutions.",
+  },
+  {
+    id: 5,
+    icon: "ri-palette-line",
+    num: "05",
+    title: "UI/UX Design",
+    desc: "User-centered interface design, prototyping, and visual identity creation. Figma, Framer, and custom design systems for impactful digital experiences.",
+  },
+  {
+    id: 6,
+    icon: "ri-server-line",
+    num: "06",
+    title: "IT Consulting",
+    desc: "Technology strategy, project planning, and technical consulting for startups and small businesses looking to scale with the right tools and infrastructure.",
+  },
+]
+
 export default function ServiceArea() {
   return (
     <>
       <section id="services" className="services-area no-padding">
         <div className="container">
           <div className="row">
-
-            <div className="col-lg-8 col-md-7">
-              <div className="service-item wow fadeInUp delay-0-2s">
-                <i className="ri-arrow-right-up-line"></i>
-                <h5>01</h5>
-                <h4>Brand Identity Design</h4>
-                <p>Blend of strategic thinking and creative flair to craft a digital identity that resonates and captivates.kits you need to create a true website within minutes.</p>
+            <div className="col-xl-12 col-lg-12">
+              <div className="section-title section-black-title wow fadeInUp delay-0-2s">
+                <h2>What I Do</h2>
               </div>
             </div>
-
-
-            <div className="col-lg-4 col-md-5">
-              <div className="service-item wow fadeInUp delay-0-4s">
-                <i className="ri-arrow-right-up-line"></i>
-                <h5>02</h5>
-                <h4>Visual Design</h4>
-                <p>Blend of artistic intuition with strategic insight to craft a visual identity.</p>
+          </div>
+          <div className="row">
+            {services_data.map((item) => (
+              <div key={item.id} className="col-lg-4 col-md-6">
+                <div className="service-item wow fadeInUp delay-0-2s">
+                  <i className={item.icon}></i>
+                  <h5>{item.num}</h5>
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
+                </div>
               </div>
-            </div>
-
-
-            <div className="col-lg-4 col-md-5">
-              <div className="service-item wow fadeInUp delay-0-6s">
-                <i className="ri-arrow-right-up-line"></i>
-                <h5>03</h5>
-                <h4>UX Research</h4>
-                <p>Blend of functionality with aesthetics to create delightful experience.</p>
-              </div>
-            </div>
-
-
-            <div className="col-lg-8 col-md-7">
-              <div className="service-item wow fadeInUp delay-0-8s">
-                <i className="ri-arrow-right-up-line"></i>
-                <h5>04</h5>
-                <h4>Art Direction</h4>
-                <p>Blend of strategic thinking and artistic finesse to craft a visual identity that goes beyond aesthetics.</p>
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>

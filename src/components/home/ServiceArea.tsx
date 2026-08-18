@@ -1,5 +1,50 @@
 import React from "react";
 
+const services_data = [
+  {
+    id: 1,
+    icon: "ri-code-s-slash-line",
+    num: "01",
+    title: "Web Development",
+    desc: "Building modern, responsive websites and web applications using React, Next.js, PHP, and WordPress. From landing pages to full-stack solutions.",
+  },
+  {
+    id: 2,
+    icon: "ri-shield-check-line",
+    num: "02",
+    title: "Network & Security",
+    desc: "Network design, configuration, and security auditing. Setting up secure infrastructure for businesses and individuals using Cisco and cloud technologies.",
+  },
+  {
+    id: 3,
+    icon: "ri-cloud-line",
+    num: "03",
+    title: "Cloud Solutions",
+    desc: "Microsoft Azure and AWS cloud deployments, migration, and management. Scalable, reliable cloud infrastructure for modern applications.",
+  },
+  {
+    id: 4,
+    icon: "ri-smartphone-line",
+    num: "04",
+    title: "IoT & Smart Systems",
+    desc: "Designing and prototyping IoT devices and embedded systems. Connecting the physical world with smart, networked technology.",
+  },
+  {
+    id: 5,
+    icon: "ri-palette-line",
+    num: "05",
+    title: "UI/UX Design",
+    desc: "User-centered interface design, prototyping, and visual identity creation. Figma, Framer, and custom design systems.",
+  },
+  {
+    id: 6,
+    icon: "ri-server-line",
+    num: "06",
+    title: "IT Consulting",
+    desc: "Technology strategy, project planning, and technical consulting for startups and small businesses looking to scale with the right tools.",
+  },
+];
+
 export default function ServiceArea() {
   return (
     <>
@@ -13,57 +58,16 @@ export default function ServiceArea() {
             </div>
           </div>
           <div className="row">
-            <div className="col-lg-8 col-md-7">
-              <div className="service-item wow fadeInUp delay-0-2s">
-                <i className="ri-arrow-right-up-line"></i>
-                <h5>01</h5>
-                <h4>Website Design & Development</h4>
-                <p>
-                  I create modern, responsive, and user-friendly websites that
-                  work perfectly on all devices. I specialize in converting
-                  designs from Figma to real-world websites, with expertise in
-                  MERN stack, Next.js, and WordPress development.
-                </p>
+            {services_data.map((item) => (
+              <div key={item.id} className="col-lg-4 col-md-6">
+                <div className="service-item wow fadeInUp delay-0-2s">
+                  <i className={item.icon}></i>
+                  <h5>{item.num}</h5>
+                  <h4>{item.title}</h4>
+                  <p>{item.desc}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="col-lg-4 col-md-5">
-              <div className="service-item wow fadeInUp delay-0-4s">
-                <i className="ri-arrow-right-up-line"></i>
-                <h5>02</h5>
-                <h4>Website Maintenance</h4>
-                <p>
-                  I provide regular updates, backups, and performance checks to
-                  keep your website secure and running
-                </p>
-              </div>
-            </div>
-
-            <div className="col-lg-4 col-md-5">
-              <div className="service-item wow fadeInUp delay-0-6s">
-                <i className="ri-arrow-right-up-line"></i>
-                <h5>03</h5>
-                <h4>Graphic Design</h4>
-                <p>
-                  I design creative visuals, logos, and marketing materials that
-                  match your brand identity.
-                </p>
-              </div>
-            </div>
-            <div className="col-lg-8 col-md-7">
-              <div className="service-item wow fadeInUp delay-0-8s">
-                <i className="ri-arrow-right-up-line"></i>
-                <h5>04</h5>
-                <h4>Social Media Marketing</h4>
-                <p>
-                  I help businesses grow their online presence through effective
-                  social media strategies and engaging content. I create
-                  targeted campaigns, manage pages, and run Facebook boost
-                  marketing to reach the right audience, increase engagement,
-                  and drive results.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

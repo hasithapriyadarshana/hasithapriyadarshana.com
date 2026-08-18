@@ -2,6 +2,7 @@
 import React from 'react'
 import SkillArea from './SkillArea'
 import ResumeArea from './ResumeArea'
+import CertificationsArea from './CertificationsArea'
 import Breadcrumb from '../common/Breadcrumb'
 import FooterOne from '@/layouts/footers/FooterOne'
 import HeaderOne from '@/layouts/headers/HeaderOne'
@@ -16,6 +17,7 @@ export default function About() {
             <Breadcrumb title="About Me" />
             <ResumeArea />
             <SkillArea />
+            <CertificationsArea />
           </main>
           <FooterOne />
         </div>

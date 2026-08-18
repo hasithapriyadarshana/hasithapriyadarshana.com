@@ -11,7 +11,6 @@ export default function ContactArea() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    // Add form submission logic here
     console.log('Form submitted:', { name, email, subject, message });
   };
 
@@ -23,7 +22,7 @@ export default function ContactArea() {
           <div className="row">
             <div className="col-xl-12 col-lg-12">
               <div className="section-title section-black-title wow fadeInUp delay-0-2s">
-                <h2>Contact Me</h2>
+                <h2>Let&apos;s Work Together</h2>
               </div>
             </div>
           </div>
@@ -35,43 +34,39 @@ export default function ContactArea() {
                   <span className="circle-btn">
                     <i className="ri-map-pin-line"></i>
                   </span>
-                  <h2>our office:</h2>
-                  <p>Jurain,Dhaka Bangladesh</p>
+                  <h2>Location</h2>
+                  <p>Sri Lanka</p>
                 </div>
-
 
                 <div className="single-contact wow fadeInUp" data-wow-delay=".4s">
                   <span className="circle-btn">
-                    <i className="ri-headphone-line"></i>
-                  </span>
-                  <h2>contact number:</h2>
-                  <p>+1234321321</p>
-                </div>
-
-
-                <div className="single-contact wow fadeInUp" data-wow-delay=".6s">
-                  <span className="circle-btn">
                     <i className="ri-mail-line"></i>
                   </span>
-                  <h2>Email us:</h2>
-                  <p>websitename@mail.com</p>
+                  <h2>Email</h2>
+                  <p>hasitha@hyperx.lk</p>
                 </div>
 
+                <div className="single-contact wow fadeInUp" data-wow-delay=".5s">
+                  <span className="circle-btn">
+                    <i className="ri-shopping-bag-line"></i>
+                  </span>
+                  <h2>Fiverr</h2>
+                  <p>Level 1 Seller</p>
+                </div>
 
                 <div className="single-contact wow fadeInUp" data-wow-delay=".6s">
                   <h2>Socials</h2>
                   <div className="about-social">
                     <ul>
-                      <li><a target='_blank' href="https://facebook.com"><i className="ri-facebook-circle-fill"></i></a></li>
-                      <li><a target='_blank' href="https://twitter.com"><i className="ri-twitter-x-line"></i></a></li>
                       <li><a target='_blank' href="https://linkedin.com"><i className="ri-linkedin-fill"></i></a></li>
-                      <li><a target='_blank' href="https://github.com/jamilrayhan10"><i className="ri-github-line"></i></a></li>
+                      <li><a target='_blank' href="https://github.com"><i className="ri-github-line"></i></a></li>
+                      <li><a target='_blank' href="mailto:hasitha@hyperx.lk"><i className="ri-mail-line"></i></a></li>
                     </ul>
                   </div>
                 </div>
 
               </div>
-            </div> 
+            </div>
 
             <div className="col-lg-8">
               <div className="contact-form contact-form-area wow fadeInUp delay-0-4s">
@@ -86,7 +81,7 @@ export default function ContactArea() {
                           className="form-control"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="Steve Milner"
+                          placeholder="Your name"
                           required
                           data-error="Please enter your Name"
                         />
@@ -103,7 +98,7 @@ export default function ContactArea() {
                           className="form-control"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          placeholder="hello@websitename.com"
+                          placeholder="your@email.com"
                           required
                           data-error="Please enter your Email"
                         />
@@ -120,7 +115,7 @@ export default function ContactArea() {
                           className="form-control"
                           value={subject}
                           onChange={(e) => setSubject(e.target.value)}
-                          placeholder="Your Subject"
+                          placeholder="Project inquiry"
                           required
                           data-error="Please enter your Subject"
                         />
@@ -138,7 +133,7 @@ export default function ContactArea() {
                           rows={4}
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
-                          placeholder="Write Your message"
+                          placeholder="Tell me about your project, requirements, or idea..."
                           required
                           data-error="Please Write your Message"
                         ></textarea>
@@ -148,7 +143,7 @@ export default function ContactArea() {
                     <div className="col-md-12">
                       <div className="form-group mb-0">
                         <button type="submit" className="theme-btn">
-                          Send Me Message <i className="ri-mail-line"></i>
+                          Send Message <i className="ri-mail-line"></i>
                         </button>
                         <div id="msgSubmit" className="hidden"></div>
                       </div>

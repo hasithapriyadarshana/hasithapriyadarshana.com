@@ -5,8 +5,15 @@ import { Metadata } from 'next'
 import React from 'react'
 
 export const metadata: Metadata = {
-  title: 'Portfolio Next JS Template',
-  description: 'Nino - Personal Portfolio Next JS Template fresh and clean Design. You can use this portfolio template for: agency, personal portfolio, architect agency, photography studios, sound and music, musician, painter portfolio, artworks, art, artist portfolio, web design works, illustrators, trainer, projects, freelance designer. Just take the best Template of your choice, change the text, add your images and done! we have a strong support team which 24/7 days available to support you.',
+  title: 'About',
+  description:
+    'Learn about Hasitha Priyadarshana — Bachelor of ICT (Hons) student at the University of Sri Jayewardenepura, specializing in Network Technology. Founder of HyperX Innovations with experience in web development, networking, cybersecurity, and cloud computing.',
+  openGraph: {
+    title: 'About | Hasitha Priyadarshana',
+    description:
+      'Learn about Hasitha Priyadarshana — Network Technology undergraduate, web developer, and founder of HyperX Innovations.',
+    url: 'https://hasithapriyadarshana.com/about',
+  },
 }
 
 export default function index() {

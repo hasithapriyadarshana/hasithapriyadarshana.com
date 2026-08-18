@@ -11,20 +11,20 @@ const counter_data = [
   {
     id: 2,
     title: "Completed Projects",
-    count: 55,
-    cls: "plus",
-  },
-  {
-    id: 2,
-    title: "Clients Worldwide",
-    count: 35,
+    count: 30,
     cls: "plus",
   },
   {
     id: 3,
-    title: "Client Satisfactions",
-    count: 99,
-    cls: "percent",
+    title: "Freelance Orders",
+    count: 20,
+    cls: "plus",
+  },
+  {
+    id: 4,
+    title: "Certifications",
+    count: 14,
+    cls: "plus",
   },
 ];
 
@@ -40,14 +40,24 @@ export default function AboutArea() {
             <div className="col-lg-9 col-sm-9">
               <div className="about-content-part wow fadeInUp delay-0-2s">
                 <p>
-                  I’m Hasitha Priyadarshana, I am currently an undergraduate of
-                  the BICT (Hons) degree at University of Sri Jayewardenepura. I
-                  also work as a WordPress developer with 3+ years of experience
-                  in building modern, responsive websites for different clients.
-                  In addition, I’m a network enthusiast who enjoys learning
-                  about how systems connect and communicate. My goal is to
-                  combine design, technology, and creativity to make digital
-                  solutions that truly help people.
+                  I&apos;m <strong>Hasitha Priyadarshana</strong>, a Bachelor of ICT
+                  (Hons) undergraduate specializing in <strong>Network Technology</strong> at
+                  the University of Sri Jayewardenepura.
+                </p>
+                <p style={{ marginTop: "15px" }}>
+                  My technology journey started with graphic design and gradually
+                  developed into web development, networking, cybersecurity, cloud
+                  computing, and IoT. Today, I combine academic knowledge with
+                  practical project experience to build useful and reliable technology
+                  solutions.
+                </p>
+                <p style={{ marginTop: "15px" }}>
+                  As the founder of <strong>HyperX Innovations</strong>, I work on web
+                  and IT projects while continuing to develop my expertise in network
+                  engineering and cybersecurity. My long-term goal is to build a career
+                  in <strong>Network Engineering and Cybersecurity</strong>, with a focus
+                  on secure infrastructure, enterprise networks, cloud technologies,
+                  and innovative technology solutions.
                 </p>
               </div>
               <div className="hero-counter-area d-flex justify-content-between wow fadeInUp delay-0-4s">
